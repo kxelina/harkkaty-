@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "harkkaty-"
+version = "0.1.0"
+description = ""
+authors = ["kxelina <elina88.k@gmail.com>"]
+readme = "README.md"
+packages = [{include = "harkkaty_"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

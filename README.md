@@ -1,5 +1,5 @@
 # harkkaty-
-Kirjoitusvirheiden korjaajassa käytetään "Damerau-Levenshtein-etäisyys" algoritmiä ja trie-tietorakenetta. Tarkoituksena olisi korjata käyttäjän syöttämä tekstipätkä.
+Kirjoitusvirheiden korjaajassa käytetään "Damerau-Levenshtein-etäisyys" algoritmiä ja trie-tietorakenetta. Tarkoituksena olisi korjata käyttäjän syöttämä tekstipätkä(englanniksi).
 
 ## Dokumentaatio
 - [määrittelydokumentti](./documents/määrittelydokumentti.md)

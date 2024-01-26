@@ -1,6 +1,7 @@
 import unittest
 from entities.trie import Trie
 
+
 class Testtrie(unittest.TestCase):
 
     def test_insert_words_into_trie(self):
@@ -34,7 +35,3 @@ class Testtrie(unittest.TestCase):
 
         found = trie.search("ap")
         self.assertEqual(found, False)
-
-
-
-

@@ -1,0 +1,7 @@
+[MASTER]
+
+ignore=tests
+
+[FORMAT]
+
+max-lin-length = 80

@@ -1,7 +1,8 @@
 
-        
+
 from entities.trie import Trie
 from entities.distance import Distance
+
 
 class SpellChecker:
     def __init__(self):

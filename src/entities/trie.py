@@ -73,7 +73,7 @@ class Trie:
 
     def get_suggestions(self, word, min_distance=100, found_word=None):
         # print(f"aloitus-{word}-{min_distance}")
-      
+
         if self.search(word):
             return word
 

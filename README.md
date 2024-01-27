@@ -1,5 +1,7 @@
 # harkkaty-
+[![workflow_badge](https://github.com/kxelina/ohtuvarasto/workflows/CI/badge.svg)](https://github.com/kxelina/harkkaty-/blob/main/.github/workflows/main.yml)
 [![codecov](https://codecov.io/gh/kxelina/ohtuvarasto/graph/badge.svg?token=NGPX79ATFB)](https://codecov.io/gh/kxelina/harkkaty-)
+
 
 Kirjoitusvirheiden korjaajassa käytetään "Damerau-Levenshtein-etäisyys" algoritmiä ja trie-tietorakenetta. Tarkoituksena olisi korjata käyttäjän syöttämä tekstipätkä(englanniksi).
 

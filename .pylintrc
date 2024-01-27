@@ -2,6 +2,18 @@
 
 ignore=tests
 
-[FORMAT]
+[MESSAGE CONTROL]
 
-max-lin-length = 80
+disable=cyclic-import,
+        unused-import,
+        missing-timeout,
+        inconsistent-return-statements,
+        broad-exception-caught,
+        missing-module-docstring,
+        missing-function-docstring,
+        missing-class-docstring,
+        invalid-name,
+        unspecified-encoding,
+        consider-using-with,
+        wrong-import-position,
+        too-few-public-methods

@@ -1,12 +1,12 @@
-from entities.trie import Trie
-from entities.distance import Distance
-from services.spellchecker import SpellChecker
 import time
+from entities.trie import Trie
+#from entities.distance import Distance
+#from services.spellchecker import SpellChecker
 
 
 def main():
     trie = Trie()
-    distance = Distance()
+    #distance = Distance()
     # trie.save_dictonary_to_trie("src/data/ap_wordslist.txt")
     trie.save_dictonary_to_trie("src/data/test_wordslist.txt")
     start_time = time.time()
@@ -22,7 +22,8 @@ def main():
     # print(trie.get_suggestions("apend"))
     print("testataan 'appa' sanaa")
     print(trie.get_suggestions("appa"))
-    # ['abend', 'agend', 'amend', 'anend', 'aped', 'append', 'arend', 'pend', 'spend', 'upend'], 1, 7,6s(oma:11,57s), 370000)
+    # ['abend', 'agend', 'amend', 'anend', 'aped', 'append', 'arend', 'pend', 'spend', 'upend'],
+    #1, 7,6s(oma:11,57s), 370000)
     # print(distance.distance("apend", "pe")) #3
     # print(distance.optimal_string_alignment_distance("apend", "pe"))
     # print(distance.optimal_string_alignment_distance("apend", "pend"))

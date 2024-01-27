@@ -15,3 +15,22 @@ Kirjoitusvirheiden korjaajassa käytetään "Damerau-Levenshtein-etäisyys" algo
 - [viikko3](./documents/viikkoraportit/raportti3.md)
 - [viikko4](./documents/viikkoraportit/raportti4.md)
 - [viikko5](./documents/viikkoraportit/raportti5.md)
+
+## Komennot
+### Avaa ohjelman:
+```
+poetry run invoke start
+```
+### Testit:
+```
+poetry run invoke test
+```
+### Coverage-report:
+```
+poetry run invoke coverage
+```
+Raportti tulee _htmlcov_ kansioon index tiedostoon
+
+### Pylint:
+```
+poetry run invoke lint

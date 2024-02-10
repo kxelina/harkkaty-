@@ -5,5 +5,7 @@ Ohjelma koostuu [distance](/src/entities/distance.py) algoritmistä omasta luoka
 
 ## Lähteet
 Trie tietorakenteen lähde: https://en.wikipedia.org/wiki/Trie
+
 Algoritmin lähde: https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance 
+
 Lähteet datalle/sanakirja ohjelmassa: https://github.com/dwyl/english-words/tree/master

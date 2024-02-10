@@ -20,11 +20,13 @@ Kirjoitusvirheiden korjaajassa käytetään "Damerau-Levenshtein-etäisyys" algo
 
 ## Komennot
 Lataa poetry:
-> poetry install
-
+```
+poetry install
+```
 Avaa virtuaaliympäristö:
-> poetry shell
-
+```
+poetry shell
+```
 ### Avaa ohjelman:
 ```
 poetry run invoke start

@@ -3,6 +3,7 @@ import re
 
 class Node:
     '''Trien node luokka.'''
+
     def __init__(self):
         '''Alustaa noden.'''
         self.children = [None] * 26
@@ -27,6 +28,7 @@ class Node:
 
 class Trie:
     '''Trie puurakenteen luokka.'''
+
     def __init__(self):
         '''Alustaa Trien luomalla noden.'''
         self.node = Node()

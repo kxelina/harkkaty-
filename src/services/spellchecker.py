@@ -78,3 +78,15 @@ class SpellChecker:
             (found_word, min_distance) = self._get_suggestion(
                 letter, word, min_distance, new_key, found_word)
         return (found_word, min_distance)
+
+    # def helper(self, word):
+    #     alku = ""
+    #     for i in range(len(word)):
+
+    #         #print(f"nyut-{word[i]}-{alku}")
+    #         #print(alku+word[i])
+    #         print(f"{alku+word [i]}-{self.get_correct_word(alku+word[i])}")
+    #         alku +=  word[i]
+    #         #print(alku+word[i+1])
+
+    #     return True

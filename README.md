@@ -19,6 +19,12 @@ Kirjoitusvirheiden korjaajassa käytetään "Damerau-Levenshtein-etäisyys" algo
 - [viikko5](./documents/viikkoraportit/raportti5.md)
 
 ## Komennot
+Lataa poetry:
+> poetry install
+
+Avaa virtuaaliympäristö:
+> poetry shell
+
 ### Avaa ohjelman:
 ```
 poetry run invoke start

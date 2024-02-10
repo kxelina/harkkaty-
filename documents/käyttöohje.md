@@ -7,7 +7,9 @@ Lataa Poetry:
 poetry install
 ``` 
 Avaa virtuaaliympäristö:
-> poetry shell
+```
+poetry shell
+```
 
 Ohjelman käynnistys komennolla:
 ```

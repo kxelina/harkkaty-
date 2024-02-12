@@ -19,7 +19,11 @@ class SpellChecker:
         suggestions = []
         for word in words:
             if len(word) > 1 and ord("z") >= ord(word[0]) >= ord("a"):
-                suggestions.append(self.get_correct_word(word))
+                correct_words = self.get_correct_word(word)
+                if correct_words is None:
+                    suggestions.append((False, word))
+                else:
+                    suggestions.append(correct_words)
             else:
                 suggestions.append(word)
         return suggestions
@@ -30,7 +34,10 @@ class SpellChecker:
         result = ""
         for element in clean_paragraph:
             if isinstance(element, tuple):
-                result += element[0][0]
+                if element[0] is False:
+                    result += f"{element[1]}(unknown word)"
+                else:
+                    result += element[0][0]
             else:
                 result += element
         return result
@@ -46,15 +53,30 @@ class SpellChecker:
     #         #     print(f"{prev_letters}-{i}") #i.value
     #         letter.print_words(new_key)
 
+    # def get_correct_word_orginal(self, word):
+    #     '''Palauttaa oikeaan kirjoitetun sanan tai ehdotuksen.'''
+    #     if self.trie.search(word):
+    #         return word
+    #     return self._get_suggestion(self.trie.node, word)
+
     def get_correct_word(self, word):
         '''Palauttaa oikeaan kirjoitetun sanan tai ehdotuksen.'''
         if self.trie.search(word):
             return word
-        return self._get_suggestion(self.trie.node, word)
+        for i in range(ord("a"), ord("z")):
+            if self.trie.search(chr(i)+word):
+                return ([chr(i)+word], 0.5)
+        start = word[0]
+        end = word[1:]
+
+        return self._get_suggestion(self.trie.node.children[ord(start)-ord("a")],
+                                     end, prev_key=start)
 
     def _get_suggestion(self, node, word, min_distance=100,  prev_key=None, found_word=None):
         '''Palauttaa väärinkirjoitetulle sanalle ehdotuksen ja käy läpi trie puurakennetta 
         ja käyttää etäisyys algoritmiä.'''
+        if node is None:
+            return None
         for letter in node.children:
             if letter is None:
                 continue

@@ -21,6 +21,7 @@ Kirjoitusvirheiden korjaajassa käytetään "Damerau-Levenshtein-etäisyys" algo
 
 ## Komennot
 Kloonaa aluksi repo omalle koneelle.
+
 Lataa poetry:
 ```
 poetry install

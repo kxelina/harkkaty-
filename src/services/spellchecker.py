@@ -1,4 +1,5 @@
 import re
+import time
 from entities.trie import Trie
 from entities.distance import Distance
 
@@ -6,10 +7,13 @@ from entities.distance import Distance
 class SpellChecker:
     '''Sanan oikeinkirjoituksen tarkistuksen luokka.'''
 
-    def __init__(self, dictonary_path):
+    def __init__(self, dictonary_path, dictonary_path_full):
         '''Alustaa trie tietorakenteen ja etäisyys algoritmin.'''
         self.trie = Trie()
+        self.trie_full = Trie()
+
         self.trie.save_dictonary_to_trie(dictonary_path)
+        self.trie_full.save_dictonary_to_trie(dictonary_path_full)
         self.distance_calculator = Distance()
 
     def check_text(self, text):
@@ -18,8 +22,9 @@ class SpellChecker:
         words = re.findall(r'\w+|[^\w]+', text)
         suggestions = []
         for word in words:
-            if len(word) > 1 and ord("z") >= ord(word[0]) >= ord("a"):
-                correct_words = self.get_correct_word(word)
+            clean_word = self.trie.cleaner(word)
+            if len(clean_word) > 1 and ord("z") >= ord(clean_word[0]) >= ord("a"):
+                correct_words = self.get_correct_word(clean_word)
                 if correct_words is None:
                     suggestions.append((False, word))
                 else:
@@ -37,7 +42,7 @@ class SpellChecker:
                 if element[0] is False:
                     result += f"{element[1]}(unknown word)"
                 else:
-                    result += element[0][0]
+                    result += f"--{element[0][0]}--"
             else:
                 result += element
         return result
@@ -61,22 +66,50 @@ class SpellChecker:
 
     def get_correct_word(self, word):
         '''Palauttaa oikeaan kirjoitetun sanan tai ehdotuksen.'''
-        if self.trie.search(word):
+        #alku = time.time()
+        if self.trie_full.search(word):
+            # loppu = time.time()
+            # print(f"{loppu-alku}, löyty-{word}")
             return word
+        # Lisää 1.kirjaimen ja katsoo löytyykö sanakirjasta oikeaa sanaa
         for i in range(ord("a"), ord("z")):
-            if self.trie.search(chr(i)+word):
+            if self.trie_full.search(chr(i)+word):
+                # loppu = time.time()
+                # print(f"{loppu-alku}, lisää alku-{word}")
                 return ([chr(i)+word], 0.5)
-        start = word[0]
-        end = word[1:]
-
-        return self._get_suggestion(self.trie.node.children[ord(start)-ord("a")],
-                                     end, prev_key=start)
+        # Lisää viimeisen kirjaimen
+        for i in range(ord("a"), ord("z")):
+            if self.trie_full.search(word+chr(i)):
+                # loppu = time.time()
+                # print(f"{loppu-alku}, lisää loppu-{word}")
+                return ([word+chr(i)], 0.5)
+        # Ottaa pois 1.kirjaimen
+        if self.trie_full.search(word[1:]):
+            # loppu = time.time()
+            # print(f"{loppu-alku}, eka kirjain-{word}")
+            return ([word[1:]], 0.5)
+        # Ottaa pois viimeisen kirjaimen
+        if self.trie_full.search(word[:-1]):
+            # loppu = time.time()
+            # print(f"{loppu-alku}, vika kirjain-{word}")
+            return ([word[:-1]], 0.5)
+        # start = word[0]
+        # end = word[1:]
+        result = self._get_suggestion(self.trie.node, word)
+        if result[1] == 1:
+            # loppu = time.time()
+            # print(f"{loppu-alku}, pieni-{word}")
+            return result
+        result = self._get_suggestion(self.trie_full.node, word)
+        # loppu = time.time()
+        # print(f"{loppu-alku}, loppu-{word}")
+        return result
 
     def _get_suggestion(self, node, word, min_distance=100,  prev_key=None, found_word=None):
         '''Palauttaa väärinkirjoitetulle sanalle ehdotuksen ja käy läpi trie puurakennetta 
         ja käyttää etäisyys algoritmiä.'''
-        if node is None:
-            return None
+        # if node is None:
+        #     return None
         for letter in node.children:
             if letter is None:
                 continue
@@ -104,11 +137,7 @@ class SpellChecker:
     # def helper(self, word):
     #     alku = ""
     #     for i in range(len(word)):
-
-    #         #print(f"nyut-{word[i]}-{alku}")
-    #         #print(alku+word[i])
     #         print(f"{alku+word [i]}-{self.get_correct_word(alku+word[i])}")
     #         alku +=  word[i]
-    #         #print(alku+word[i+1])
 
     #     return True

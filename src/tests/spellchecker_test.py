@@ -44,4 +44,4 @@ class TestSpellchecker(unittest.TestCase):
         text = spellchecker.fix_text(
             "hello, what, where are you?")
         self.assertEqual(
-            text, "hello, what, where --care-- you?")  # sanakirjassa ei ole are sanaa
+            text, "hello, what, where --area-- you?")  # sanakirjassa ei ole are sanaa

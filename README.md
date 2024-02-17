@@ -17,6 +17,7 @@ Kirjoitusvirheiden korjaajassa käytetään "Damerau-Levenshtein-etäisyys" algo
 - [viikko3](./documents/viikkoraportit/raportti3.md)
 - [viikko4](./documents/viikkoraportit/raportti4.md)
 - [viikko5](./documents/viikkoraportit/raportti5.md)
+- [viikko6](./documents/viikkoraportit/raportti6.md)
 
 ## Komennot
 Lataa poetry:

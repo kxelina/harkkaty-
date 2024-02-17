@@ -20,6 +20,7 @@ Kirjoitusvirheiden korjaajassa käytetään "Damerau-Levenshtein-etäisyys" algo
 - [viikko6](./documents/viikkoraportit/raportti6.md)
 
 ## Komennot
+Kloonaa aluksi repo omalle koneelle.
 Lataa poetry:
 ```
 poetry install

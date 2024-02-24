@@ -10,21 +10,6 @@ class Node:
         self.is_terminal = False
         self.value = ""
 
-    # def __str__(self):
-    #     return f"value:{self.value}, terminal:{self.is_terminal}, nodes: {self.children}"
-
-    # def print_words(self, prev_key=""):
-    #     for letter in self.children:
-    #         if letter is None:
-    #             continue
-    #         new_key = prev_key + letter.value
-    #         if letter.is_terminal:
-    #             print(f"{new_key}: {letter}")
-
-    #         # else:
-    #         #     print(f"{prev_letters}-{i}") #i.value
-    #         letter.print_words(new_key)
-
 
 class Trie:
     '''Trie puurakenteen luokka.'''
@@ -32,9 +17,6 @@ class Trie:
     def __init__(self):
         '''Alustaa Trien luomalla noden.'''
         self.node = Node()
-
-    # def __str__(self):
-# return f"value:{self.node.value}, terminal:{self.node.is_terminal}, nodes: {self.node.children}"
 
     def cleaner(self, word):
         ''' Muuttaa tekstin pienemmiksi kirjammiksi ja poistaa kaikki muut paitsi kirjaimet a-z.'''

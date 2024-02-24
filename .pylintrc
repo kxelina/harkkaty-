@@ -7,4 +7,5 @@ disable = missing-module-docstring,
         missing-function-docstring,
         too-few-public-methods,
         consider-using-enumerate,
-        too-many-arguments
+        too-many-arguments,
+        unused-variable

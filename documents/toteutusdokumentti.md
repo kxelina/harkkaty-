@@ -23,3 +23,5 @@ Trie tietorakenteen lähde: https://en.wikipedia.org/wiki/Trie
 Algoritmin lähde: https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance 
 
 Lähteet datalle/sanakirja ohjelmassa: https://github.com/dwyl/english-words/tree/master
+
+Käytetty Chatgpt vain UI:n teossa nopeuttamaan ohjelman tekoa, kuten kysytty miten laittaa punaisen värin ja miten käyttäjä voi laittaa exit komennon.

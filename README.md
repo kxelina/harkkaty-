@@ -3,7 +3,7 @@
 [![codecov](https://codecov.io/gh/kxelina/ohtuvarasto/graph/badge.svg?token=NGPX79ATFB)](https://codecov.io/gh/kxelina/harkkaty-)
 
 
-Kirjoitusvirheiden korjaajassa käytetään "Damerau-Levenshtein-etäisyys" algoritmiä ja trie-tietorakenetta. Tarkoituksena olisi korjata käyttäjän syöttämä tekstipätkä(englanniksi).
+Kirjoitusvirheiden korjaajassa käytetään "Damerau-Levenshtein-etäisyys" algoritmiä ja trie-tietorakenetta. Tarkoituksena olisi korjata käyttäjän syöttämä sana tai tekstipätkä(englanniksi).
 
 ## Dokumentaatio
 - [määrittelydokumentti](./documents/määrittelydokumentti.md)

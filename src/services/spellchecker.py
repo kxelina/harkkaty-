@@ -29,17 +29,6 @@ class SpellChecker:
                 suggestions.append(word)
         return suggestions
 
-    # def fix_text(self, user_input):
-    #     '''Palauttaa tekstin korjattuna käyttäen ensimmäistä ehdotusta.'''
-    #     clean_paragraph = self.check_text(user_input)
-    #     result = ""
-    #     for element in clean_paragraph:
-    #         if isinstance(element, tuple):
-    #             result += f"\033[91m{element[0]}\033[0m"
-    #         else:
-    #             result += element
-    #     return result
-
     def get_correct_word(self, word, orginal_word=None):
         '''Palauttaa oikeaan kirjoitetun sanan tai ehdotuksen.'''
         if self.trie_full.search(word):

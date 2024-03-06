@@ -15,4 +15,5 @@ Ohjelman käynnistys komennolla:
 ```
 poetry run invoke start
 ```
-Kirjoita testattava tekstipätkä englanniksi ja ohjelma palauttaa tekstipätkän korjauksineen. Jos sanan ympärillä on -- tarkoittaa, että syöttämäsi sana oli väärinkirjoitettu ja on anettu korjausehdotus.
+## Ohjelman toiminta
+Kirjoita testattava sana tai tekstipätkä englanniksi ja ohjelma palauttaa sanan tai tekstipätkän korjauksineen. Jos sanoja on väärinkirjoitettu, niin voit valita minkä korjauksen haluat sanalle valitsemalla vastaavan numeron, jos et halua valita korjausta, niin paina enteriä, niin sana ei korjaudu. Kirjoita exit, jos haluat lopettaa ohjelman.

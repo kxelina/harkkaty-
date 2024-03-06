@@ -12,8 +12,9 @@ Algorimin aikavaativuus pitäisi pahminmassa tapauksessa olla O(mn), missä m on
 Ohjelmassa, jos löytyy sana, niin nopeus on n*10^⁻6 s, missä n on keskimäärin 5 eli siihen vaikuttaa sanan pituus ja sanalistan pituus.
 
 ## Puutteet ja parannusehdot
-Puutteena on, että ohjelma on jossain tapauksissa hidas ja ohjelma ei palauta parasta vaihtoehtoa vääriinkirjoitetulle sanalle käyttäjän kannalta vaan palauttaa sanan mikä on lähin etäisyys, koska käytetään distance algoritmia. Esim. sanalle voi löytyä monta vaihtoehtoa ja parannusehtona olisi, että käyttäjä saisi kaikki vaihtoedot ja voisi itse valita sopivan sanan. Tai ohjelmassa voisi lisätä sellaisen arpomisfunktio eli osaisi arvata, minkä oikean sanan käyttäjä haluisi. Parannusehtona olisi, että ohjelma voisi muistaa käyttäjän tekemät yleiset virheet ja siitä syntyisi oma sanakirja.
-Toisena parannusehtona olisi, että sanat olisivat samalla tyylillä, mitten käyttäjä on lisännyt sinne, tällä hetkellä ohjelma muuttaa kaikki sanat pieneksi kirjaimiseksi.
+Puutteena on, että ohjelma on jossain tapauksissa hidas ja ohjelma ei palauta parasta vaihtoehtoa vääriinkirjoitetulle sanalle käyttäjän kannalta vaan palauttaa sanan mikä on lähin etäisyys, koska käytetään distance algoritmia. UI:sen on lisätty, että käyttäjä pystyy valita haluamansa sanaehdotuksen tai olla valitsematta ehdotusta jos sana on mielestään oikea. Tätä voisi jatkokehittää siten, että kun käyttäjä miettii niitä sanaehdotuksien valitsemista, niin ohjelma antaisi sillä välin lisää ehdotuksia.
+Parannusehtona olisi, että ohjelma voisi muistaa käyttäjän tekemät yleiset virheet ja siitä syntyisi oma sanakirja.
+Toisena parannusehtona olisi, että sanat olisivat samalla tyylillä, miten käyttäjä on lisännyt sinne, tällä hetkellä ohjelma muuttaa kaikki sanat pieneksi kirjaimiseksi.
 Trien luominen kestää tässä ohjelmassa, koska sanasto on iso, mutta sitä voisi ehkä yrittää optimoida. Algotimiä voisi optimoida siten, että käyttäsi jotain map-työkalua ja laittaisi esim. lähellä olevat kirjaimet näppäimistössä tallenteen ja käyttäsi sitä hyödyksi. 
 Voisi käyttää jotain toista algoritmia apuna ohjelman nopeuttamiselle. Ohjelma voisi toimi myös muilla kielillä, mutta ohjelman toimintoja pitäisi muuttaa. Esim. suomenkielellä on haastavampi tehdä taivutusten takia.
 
@@ -24,4 +25,4 @@ Algoritmin lähde: https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_dis
 
 Lähteet datalle/sanakirja ohjelmassa: https://github.com/dwyl/english-words/tree/master
 
-Käytetty Chatgpt vain UI:n teossa nopeuttamaan ohjelman tekoa, kuten kysytty miten laittaa punaisen värin ja miten käyttäjä voi laittaa exit komennon.
+Käytetty Chatgpt vain alussa kysymään aika- ja tilavaativuksia, sitten UI:n teossa nopeuttamaan ohjelman tekoa, kuten kysytty miten laittaa punaisen värin ja miten käyttäjä voi laittaa exit komennon, muuten ei ole käytetty.

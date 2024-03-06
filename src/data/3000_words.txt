@@ -155,6 +155,7 @@ approve
 approximately
 Arab
 architect
+are
 area
 argue
 argument
@@ -1319,6 +1320,7 @@ identify
 identity
 ie
 if
+is
 ignore
 ill
 illegal

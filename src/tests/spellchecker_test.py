@@ -3,7 +3,7 @@ from services.spellchecker import SpellChecker
 
 
 class TestSpellchecker(unittest.TestCase):
-    def test_get_correct_word(self):
+    def test_get_correct_word_function(self):
         spellchecker = SpellChecker(
             "src/data/test_wordslist.txt", "src/data/3000_words.txt")
         # sana on väärin, joten antaa läheisempiä ehdotuksia
@@ -17,7 +17,7 @@ class TestSpellchecker(unittest.TestCase):
             "bake")  # sana löytyi 3000-word listasta
         self.assertEqual(correct_word, "bake")
 
-    def test_optimal_get_correct_word(self):
+    def test_optimal_get_correct_word_function(self):
         spellchecker = SpellChecker(
             "src/data/test_wordslist.txt", "src/data/3000_words.txt")
         word = spellchecker.get_correct_word(
@@ -32,18 +32,19 @@ class TestSpellchecker(unittest.TestCase):
         # sanassa on ylimääräinen loppukirjain
         word = spellchecker.get_correct_word("apartmentt")
         self.assertEqual(word, (['apartment'], 0.5, 'apartmentt'))
+        # sanaa ei löytynyt pienesta sanakirjasta ja siiryttiin etsimään isosta sanakirjasta
+        word = spellchecker.get_correct_word("runny")
+        self.assertEqual(word, (['funny'], 1, 'runny'))
 
-    # def test_get_fixed_text(self):
-    #     spellchecker = SpellChecker(
-    #         "src/data/test_wordslist.txt", "src/data/3000_words.txt")
-    #     text = spellchecker.fix_text("apartment...2 apar jjj!banana dont\n!")
-    #     # testailee eri merkkejä ja erilaisia sanoja
-    #     red_start = "\033[91m"
-    #     red_end = "\033[0m"
-    #     self.assertEqual(
-    #         text, f"apartment...2 {red_start}apart{red_end} {red_start}jet{red_end}!{red_start}balance{red_end} {red_start}adopt{red_end}\n!")  # sanakirjassa ei ole banana ja dont sanaa
-    #     # testailee järkevän tekstin
-    #     text = spellchecker.fix_text(
-    #         "hello, what, where are you?")
-    #     self.assertEqual(
-    #         text, f"hello, what, where {red_start}area{red_end} you?")  # sanakirjassa ei ole are sanaa
+    def test_check_text_function(self):
+        spellchecker = SpellChecker(
+            "src/data/test_wordslist.txt", "src/data/3000_words.txt")
+        text = spellchecker.check_text(" Hello i am a athele!\n!")
+        # testailee eri merkkejä ja erilaisia sanoja sekä väärän sanan
+        self.assertEqual(
+            text, [' ', 'hello', ' ', 'i', ' ', 'am', ' ', 'a', ' ',
+                   (['athlete', 'theme', 'there', 'these'], 2, 'athele'), '!\n!'])
+        text = spellchecker.check_text("what is my name?")
+        # testailee oikean kirjoitetun tekstin
+        self.assertEqual(
+            text, ['what', ' ', 'is', ' ', 'my', ' ', 'name', '?'])

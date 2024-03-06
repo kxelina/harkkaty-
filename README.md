@@ -20,7 +20,7 @@ Kirjoitusvirheiden korjaajassa käytetään "Damerau-Levenshtein-etäisyys" algo
 - [viikko6](./documents/viikkoraportit/raportti6.md)
 
 ## Komennot
-Kloonaa aluksi repo omalle koneelle.
+Pura zip-tiedosto viimeisimmästä [releasistä](https://github.com/kxelina/harkkaty-/releases/tag/loppurelease) tai kloonaa repo omalle koneelle.
 
 Lataa poetry:
 ```

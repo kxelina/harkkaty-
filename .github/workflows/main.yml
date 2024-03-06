@@ -18,8 +18,6 @@ jobs:
           python-version: '3.10'
       - name: Install Poetry
         run: pip install poetry
-      - name: update lock
-        run: poetry lock [--no update]
       - name: Install dependencies
         run: poetry install
       - name: Run tests

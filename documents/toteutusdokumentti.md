@@ -2,7 +2,7 @@
 Ohjelma ottaa vastaan teksipätkän ja tarkistaa sanojen oikean englannin kirjotuksen. Sanat ovat kirjoitettu a-z kirjamilla (voi olla isoja kirjaimia, mutta palauttaa vain pieniä kirjaimia), muita merkkejä ja numeroita ei tarkisteta vaan ne hyväksytään sellaisenaan. Käyttäjä voi halutessa vaihtaa oman sanaston vaihtomalla file_path. 
 
 ## Ohjelman rakenne
-Ohjelma koostuu [distance](/src/entities/distance.py) algoritmi luokasta (vertaa kahta sanaa ja kertoo niiden eron etäisyytenä), [trie](/src/entities/trie.py) puimaisesta tietorakenne luokasta (säilyttää sanakirjan) ja luokasta [spellchecker](/src/services/spellchecker.py) (etsii väärinkirjoitetulle sanalle läheisimään ehdotuksen), joka käyttää näitä funktioita distance ja trie luokasta. Käyttäjä pääsee indexin avulla spellchecker luokkaan käyttämään tarvittavia funktiota, jotka korjaa tekstin sanakirjoitusvirheet. 
+Ohjelma koostuu [distance](/src/entities/distance.py) algoritmi luokasta (vertaa kahta sanaa ja kertoo niiden eron etäisyytenä), [trie](/src/entities/trie.py) puimaisesta tietorakenne luokasta (säilyttää sanakirjan) ja luokasta [spellchecker](/src/services/spellchecker.py) (etsii väärinkirjoitetulle sanalle läheisimään ehdotuksen), joka käyttää näitä funktioita distance ja trie luokasta. Käyttäjä pääsee [indexin](/src/index.py) avulla spellchecker luokkaan käyttämään tarvittavia funktiota, jotka korjaa tekstin sanakirjoitusvirheet. 
 
 ## O-analyysi
 Wikipedian mukaan Trie:n aikavaativuus olisi O(n), missä n on sananpituus ja sen tilavaativuus olisi myös O(nm), missä n nodenjen määrä kertaa 26^(n-1) kirjainta pahimmassa tapauksessa ja m sanakirjan sanojen keskimääräinen pituus.
@@ -13,6 +13,7 @@ Ohjelmassa, jos löytyy sana, niin nopeus on n*10^⁻6 s, missä n on keskimää
 
 ## Puutteet ja parannusehdot
 Puutteena on, että ohjelma on jossain tapauksissa hidas ja ohjelma ei palauta parasta vaihtoehtoa vääriinkirjoitetulle sanalle käyttäjän kannalta vaan palauttaa sanan mikä on lähin etäisyys, koska käytetään distance algoritmia. UI:sen on lisätty, että käyttäjä pystyy valita haluamansa sanaehdotuksen tai olla valitsematta ehdotusta jos sana on mielestään oikea. Tätä voisi jatkokehittää siten, että kun käyttäjä miettii niitä sanaehdotuksien valitsemista, niin ohjelma antaisi sillä välin lisää ehdotuksia.
+
 Parannusehtona olisi, että ohjelma voisi muistaa käyttäjän tekemät yleiset virheet ja siitä syntyisi oma sanakirja.
 Toisena parannusehtona olisi, että sanat olisivat samalla tyylillä, miten käyttäjä on lisännyt sinne, tällä hetkellä ohjelma muuttaa kaikki sanat pieneksi kirjaimiseksi.
 Trien luominen kestää tässä ohjelmassa, koska sanasto on iso, mutta sitä voisi ehkä yrittää optimoida. Algotimiä voisi optimoida siten, että käyttäsi jotain map-työkalua ja laittaisi esim. lähellä olevat kirjaimet näppäimistössä tallenteen ja käyttäsi sitä hyödyksi. 
